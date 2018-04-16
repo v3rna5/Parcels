@@ -17,8 +17,8 @@ namespace Parcels.Controllers
       //   return View();
       // }
 
-      [Route("/greeting_card")]
-       public ActionResult GreetingCard()
+      [Route("/onSubmit")]
+       public ActionResult OnSubmit()
        {
            ParcelVariable myParcelVariable = new ParcelVariable();
            myParcelVariable.SetLength(Request.Query["length"]);

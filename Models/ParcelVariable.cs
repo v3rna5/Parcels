@@ -6,6 +6,12 @@ namespace Parcels.Models
     private string _width;
     private string _height;
     private string _weight;
+    private float _volume;
+    private float lengthNumber;
+    private float widthNumber;
+    private float heightNumber;
+    private float weightNumber;
+    private float shippingCost;
 
     public string GetLength()
     {
@@ -39,6 +45,24 @@ namespace Parcels.Models
     {
       _weight=newWeight;
     }
+    public float GetVolume()
+    {
+      lengthNumber=float.Parse(_length);
+      widthNumber=float.Parse(_width);
+      heightNumber=float.Parse(_height);
+
+      _volume=lengthNumber*widthNumber*heightNumber;
+
+      return _volume;
+    }
+
+    public float CostToShip()
+    {
+      weightNumber=float.Parse(_weight);
+      shippingCost=_volume*weightNumber/10;
+      return shippingCost;
+    }
+
   }
 }
 
