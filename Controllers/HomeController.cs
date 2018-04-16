@@ -6,26 +6,27 @@ namespace Parcels.Controllers
     public class HomeController : Controller
     {
       [Route("/")]
-      public ActionResult Hello()
-      {
-        LetterVariable myLetterVariable = new LetterVariable();
-        myLetterVariable.SetRecipient("Jessica");
-        return View(myLetterVariable);
-      }
-
-      [Route("/form")]
       public ActionResult Form()
       {
         return View();
       }
 
+      // [Route("/form")]
+      // public ActionResult Form()
+      // {
+      //   return View();
+      // }
+
       [Route("/greeting_card")]
        public ActionResult GreetingCard()
        {
-           LetterVariable myLetterVariable = new LetterVariable();
-           myLetterVariable.SetRecipient(Request.Query["recipient"]);
-           myLetterVariable.SetSender(Request.Query["sender"]);
-           return View("Hello", myLetterVariable);
+           ParcelVariable myParcelVariable = new ParcelVariable();
+           myParcelVariable.SetLength(Request.Query["length"]);
+           myParcelVariable.SetWidth(Request.Query["width"]);
+           myParcelVariable.SetHeight(Request.Query["height"]);
+           myParcelVariable.SetWeight(Request.Query["weight"]);
+           //myLetterVariable.SetSender(Request.Query["sender"]);
+           return View("Hello", myParcelVariable);
        }
     }
 }
